@@ -2,7 +2,7 @@
 
 ## Station méteo 🌀
 
-<img src="git.png" style="height:200px;width:250px;">
+<img src="git.png" style="height:200px;">
 
 Le but du projet va être de mettre en place une station météo permettant de récolter divers  informations comme la température, la pression de l’air, la luminosité et l’humidité.
 
