@@ -22,7 +22,7 @@ app.get('/', (req, res) => {
     });
 });
 
-app.listen(4000);
+app.listen(3000);
 
 const SerialPort = require('serialport');
 const Readline = require('@serialport/parser-readline');
