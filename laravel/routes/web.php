@@ -16,3 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/home', 'AppController@index');
+Route::get('/salon', 'AppController@salon');
+Route::get('/chambre', 'AppController@chambre');
+
