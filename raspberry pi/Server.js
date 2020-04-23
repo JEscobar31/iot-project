@@ -3,7 +3,11 @@ var express = require('express');
 var morgan = require('morgan');
 var app = express();
 
+//CREATION VARIABLE + ATTRIBUTION DONNES
 var temperature = 20;
+var brightness = 250;
+var pressure = 3;
+var humidity = 45;
 
 app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
@@ -18,7 +22,11 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json' })); // parse applica
 
 app.get('/', (req, res) => {
     res.send({
-        temperature: temperature
+        temperature: temperature, 
+        brightness: brightness,
+        pressure: pressure,
+        humidity: humidity
+
     });
 });
 
@@ -35,6 +43,9 @@ parser.on('data', data => {
     try {
         data = JSON.parse(data);
         temperature = data.temperature;
+        brightness = data.brightness;
+        pressure = data.pressure;
+        humidity = data.humidity;
     } catch (err) {
         console.log(err);
     }
