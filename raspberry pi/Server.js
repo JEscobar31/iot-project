@@ -41,16 +41,16 @@ port.on("open", () => {
 });
 parser.on('data', data => {
     try {
-        request.post('http://laravel.test/', {
-            json: JSON.parse(data),
-        }, (error, res, body) => {
-            if (error) {
-                console.error(error)
-                return
-            }
-            console.log(`statusCode: ${res.statusCode}`)
-            console.log(body)
-        })
+        request.post('http://laravel.test/',
+            JSON.parse(data),
+            (error, res, body) => {
+                if (error) {
+                    console.error(error)
+                    return
+                }
+                console.log(`statusCode: ${res.statusCode}`)
+                console.log(body)
+            });
         temperature = data.temperature;
         brightness = data.brightness;
         pressure = data.pressure;
