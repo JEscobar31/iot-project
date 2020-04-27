@@ -17,8 +17,8 @@ class CreateWeathersTable extends Migration
             $table->id();
             $table->string('arduino_id');
             $table->decimal('temperature', 3, 2);
-            $table->int('brightness');
-            $table->int('humidity');
+            $table->integer('brightness');
+            $table->integer('humidity');
             $table->decimal('pressure', 5, 2);
             $table->timestamps();
         });
