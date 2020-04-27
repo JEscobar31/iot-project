@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/axentix@0.5.3/dist/css/axentix.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/axentix@0.5.3/dist/css/axentix.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/neu-axentix@1.0.0/dist/css/neu-axentix.min.css">
     <style>
         .salon{
             padding-top: 30px;
@@ -63,6 +65,8 @@
       </button>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/axentix@0.5.3/dist/js/axentix.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axentix@0.5.3/dist/js/axentix.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/neu-axentix@1.0.0/dist/js/neu-axentix.min.js"></script>
     <script>
         var sidenav = new Sidenav('#example-sidenav');
     </script>

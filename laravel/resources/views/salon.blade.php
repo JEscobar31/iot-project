@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/axentix@0.5.3/dist/css/axentix.min.css">
     <style>
         .salon{
-            padding-top: 30px;
+            padding-top: 15px;
         }
         .salon-title, 
         .temperature, 
@@ -18,6 +18,11 @@
             text-align: center;
             font-family: 'Courier New', Courier, monospace;
             font-size: 30px;
+        }
+        p{
+          font-family: 'Courier New', Courier, monospace;
+          font-size: 35px;
+          text-align: center;
         }
     </style>
   </head>
@@ -57,8 +62,7 @@
                         <div class="card-header temperature">Temperature</div>
                         <div class="card-content">
                         <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Non veritatis excepturi natus impedit distinctio quidem, nesciunt id
-                            possimus quia, tempore fuga doloribus reiciendis facilis voluptate accusantium! Adipisci est nam soluta!
+                          {{$data->temperature}}°C
                         </p>
                         </div>
                     </div>
@@ -69,8 +73,7 @@
                         <div class="card-header brigtness">Brightness</div>
                         <div class="card-content">
                         <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Non veritatis excepturi natus impedit distinctio quidem, nesciunt id
-                            possimus quia, tempore fuga doloribus reiciendis facilis voluptate accusantium! Adipisci est nam soluta!
+                          {{$data->brightness}}lux
                         </p>
                         </div>
                     </div>
@@ -80,8 +83,7 @@
                         <div class="card-header pressure">Pressure</div>
                         <div class="card-content">
                         <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Non veritatis excepturi natus impedit distinctio quidem, nesciunt id
-                            possimus quia, tempore fuga doloribus reiciendis facilis voluptate accusantium! Adipisci est nam soluta!
+                          {{$data->pressure}}HPa
                         </p>
                         </div>
                     </div>
@@ -91,8 +93,7 @@
                         <div class="card-header humidity">Humidity</div>
                         <div class="card-content">
                         <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Non veritatis excepturi natus impedit distinctio quidem, nesciunt id
-                            possimus quia, tempore fuga doloribus reiciendis facilis voluptate accusantium! Adipisci est nam soluta!
+                          {{$data->humidity}}%
                         </p>
                         </div>
                     </div>

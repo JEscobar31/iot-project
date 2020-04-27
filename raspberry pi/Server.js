@@ -2,6 +2,7 @@ var bodyParser = require('body-parser')
 var express = require('express');
 var morgan = require('morgan');
 var app = express();
+const request = require('request');
 
 //CREATION VARIABLE + ATTRIBUTION DONNES
 var temperature = 20;
@@ -22,11 +23,10 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json' })); // parse applica
 
 app.get('/', (req, res) => {
     res.send({
-        temperature: temperature, 
+        temperature: temperature,
         brightness: brightness,
         pressure: pressure,
         humidity: humidity
-
     });
 });
 
@@ -41,7 +41,18 @@ port.on("open", () => {
 });
 parser.on('data', data => {
     try {
-        data = JSON.parse(data);
+        const request = require('request')
+
+        request.post('http://localhost:8888/iot/iot-project/laravel/public/home', {
+            data = JSON.parse(data);
+        }, (error, res, body) => {
+            if (error) {
+                console.error(error)
+                return
+            }
+            console.log(`statusCode: ${res.statusCode}`)
+            console.log(body)
+        })
         temperature = data.temperature;
         brightness = data.brightness;
         pressure = data.pressure;
