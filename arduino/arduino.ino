@@ -4,7 +4,7 @@
 #include <DHT.h>
 #include <DHT_U.h>
 #include <SFE_BMP180.h>
-
+#include <ArduinoUniqueID.h>
 
 #define DHTPIN 2
 #define DHTTYPE DHT22
@@ -16,6 +16,18 @@ int getBrightness() {
   int val = analogRead(3);
   val = map(val, 6, 679, 0, 100);
   return val;
+}
+
+String getUniqueID() {
+  String uniqueID;
+  for (size_t i = 0; i < UniqueIDsize; i++)
+  {
+    if (UniqueID[i] < 0x10) {
+      uniqueID += "0";
+    }
+    uniqueID += String(UniqueID[i], HEX);
+  }
+  return uniqueID;
 }
 
 double getPressure()
@@ -77,6 +89,8 @@ double getPressure()
   else Serial.println("error starting temperature measurement\n");
 }
 
+
+
 void sendData() {
   StaticJsonDocument<256> doc;
   JsonObject root = doc.to<JsonObject>();
@@ -88,7 +102,7 @@ void sendData() {
   root["brightness"] = random(0, 100);
   root["humidity"] = random(0, 100);
   root["pressure"] = random(500, 1500);
-  root["arduino_id"] = 1;
+  root["arduino_id"] = getUniqueID();
   serializeJson(root, Serial);
   Serial.println();
 }
