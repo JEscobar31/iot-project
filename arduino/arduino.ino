@@ -80,12 +80,15 @@ double getPressure()
 void sendData() {
   StaticJsonDocument<256> doc;
   JsonObject root = doc.to<JsonObject>();
-  root["temperature"] = dht.readTemperature();
-  root["brightness"] = getBrightness();
-  root["humidity"] = dht.readHumidity();
-  root["pressure"] = getPressure();
-  root["time"] = 0;
-  root["id"] = 1;
+  //root["temperature"] = dht.readTemperature();
+  //root["brightness"] = getBrightness();
+  //root["humidity"] = dht.readHumidity();
+  //root["pressure"] = getPressure();
+  root["temperature"] = random(15, 30);
+  root["brightness"] = random(0, 100);
+  root["humidity"] = random(0, 100);
+  root["pressure"] = random(500, 1500);
+  root["arduino_id"] = 1;
   serializeJson(root, Serial);
   Serial.println();
 }
