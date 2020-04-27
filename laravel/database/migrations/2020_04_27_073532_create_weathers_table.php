@@ -16,10 +16,10 @@ class CreateWeathersTable extends Migration
         Schema::create('weathers', function (Blueprint $table) {
             $table->id();
             $table->string('arduino_id');
-            $table->decimal('temperature', 3, 2);
+            $table->double('temperature', 15, 2);
             $table->integer('brightness');
             $table->integer('humidity');
-            $table->decimal('pressure', 5, 2);
+            $table->double('pressure', 15, 2);
             $table->timestamps();
         });
     }
