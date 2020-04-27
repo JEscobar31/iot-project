@@ -41,10 +41,8 @@ port.on("open", () => {
 });
 parser.on('data', data => {
     try {
-        const request = require('request')
-
-        request.post('http://localhost:8888/iot/iot-project/laravel/public/home', {
-            data = JSON.parse(data);
+        request.post('http://laravel.test/', {
+            json: JSON.parse(data),
         }, (error, res, body) => {
             if (error) {
                 console.error(error)
