@@ -35,7 +35,14 @@ class WeatherController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $inputs = $request->except('_token');
+        $weather = new Weather();
+        foreach ($inputs as $key => $value) {
+            $weather->$key = $value;
+        }
+        $weather->save();
+
+
     }
 
     /**
@@ -83,5 +90,7 @@ class WeatherController extends Controller
         //
     }
 
-    
+
+
+
 }
