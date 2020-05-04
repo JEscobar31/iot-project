@@ -83,5 +83,16 @@ class WeatherController extends Controller
         //
     }
 
-    
+    public function getDataFromRaspberry(Request $request) {
+        $inputs = $request->all();
+        $weather = new Weather();
+        foreach ($inputs as $key => $value) {
+            $weather->$key = $value;
+        }
+        $oldWeather = Weather::where('arduino_id', $inputs['arduino_id'])->first();
+        if ($oldWeather){
+            $weather->user_id = $oldWeather->user_id; 
+        }
+        $weather->save();
+    }
 }

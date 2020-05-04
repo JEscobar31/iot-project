@@ -15,6 +15,7 @@ class CreateWeathersTable extends Migration
     {
         Schema::create('weathers', function (Blueprint $table) {
             $table->id();
+            $table->integer('user_id')->nullable();
             $table->string('arduino_id');
             $table->double('temperature', 15, 2);
             $table->integer('brightness');

@@ -13,11 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Auth::routes();
+
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/', 'HomeController@index')->name('home');
+    Route::get('/getWeather/{id}', 'AppController@getWeather');
+    Route::get('/add-room', 'AppController@addRoom')->name('addRoom');
+    Route::post('/add-room', 'AppController@addRoomPost')->name('addRoom.post');
 });
-
-Route::get('/home', 'AppController@index');
-Route::get('/salon', 'AppController@salon');
-Route::get('/chambre', 'AppController@chambre');
-
